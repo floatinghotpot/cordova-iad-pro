@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport"
+	content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+<title>Hello World</title>
+<script type="text/javascript" src="cordova.js"></script>
+<style type="text/css">
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: gray;
+	color: white;
+}
+
+div#fullpage {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	border: 0px solid red;
+	text-align: center;
+	vertical-align: middle;
+}
+
+button {
+	font-size: 18px;
+}
+</style>
+</head>
+<body onload="onLoad()" onresize="onResize()">
+	<script>
+
+		function onLoad() {
+			if ((/(ipad|iphone|ipod|android)/i.test(navigator.userAgent))) {
+				document.addEventListener('deviceready', initApp, false);
+			} else {
+				initApp();
+			}
+		}
+
+		function initApp() {
+			if (! iAd) {
+				alert('iAd plugin not ready');
+				return;
+			}
+
+			registerAdEvents();
+			
+			iAd.setOptions({
+				position : iAd.AD_POSITION.BOTTOM_CENTER,
+				// offsetTopBar : true,
+				// x: integer,		// valid when set position to 0 / POS_XY
+				// y: integer,		// valid when set position to 0 / POS_XY
+				// autoShow: true // auto show interstitial ad when loaded, set to false if prepare/show
+			});
+			
+			createSelectedBanner();
+		}
+		// optional, in case respond to events or handle error
+		function registerAdEvents() {
+            document.addEventListener('onAdFailLoad', function(data){ 
+            	alert('error: ' + data.error + 
+            			', reason: ' + data.reason + 
+            			', adNetwork:' + data.adNetwork + 
+            			', adType:' + data.adType + 
+            			', adEvent:' + data.adEvent); // adType: 'banner' or 'interstitial'
+            });
+            document.addEventListener('onAdLoaded', function(data){});
+            document.addEventListener('onAdPresent', function(data){});
+            document.addEventListener('onAdLeaveApp', function(data){});
+            document.addEventListener('onAdDismiss', function(data){});
+		}
+
+		// click button to call following functions
+		function getSelectedPosition() {
+			var i = document.getElementById("adPosition").selectedIndex;
+			var items = document.getElementById("adPosition").options;
+			return parseInt(items[i].value);
+		}
+		function createSelectedBanner() {
+			var overlap = document.getElementById('overlap').checked;
+			iAd.createBanner({
+				overlap : overlap,
+				position : getSelectedPosition()
+			});
+		}
+		function createBannerOfGivenSize() {
+			var w = document.getElementById('w').value;
+			var h = document.getElementById('h').value;
+
+			iAd.createBanner({
+				position : getSelectedPosition()
+			});
+		}
+		function showBannerAtSelectedPosition() {
+			iAd.showBanner(getSelectedPosition());
+		}
+		function showBannerAtGivenXY() {
+			var x = document.getElementById('x').value;
+			var y = document.getElementById('y').value;
+			iAd.showBannerAtXY(x, y);
+		}
+		function prepareInterstitial() {
+			var autoshow = document.getElementById('autoshow').checked;
+			iAd.prepareInterstitial({
+				autoShow : autoshow
+			});
+		}
+		function onResize() {
+			var s = document.getElementById('sizeinfo');
+			s.innerHTML = "web view: " + window.innerWidth + " x " + window.innerHeight;
+		}
+	</script>
+	<div id="fullpage">
+		<p>Demo for iAd Plugin</p>
+		Banner<br /><input type='checkbox' id='overlap' />overlap<br/>
+		<button onclick="createSelectedBanner();">create</button>
+		<button onclick="iAd.removeBanner();">remove</button>
+
+		<hr />
+		<select id="adPosition">
+			<option value='1'>Top Left</option>
+			<option value='2'>Top Center</option>
+			<option value='3'>Top Right</option>
+			<option value='4'>Left</option>
+			<option value='5'>Center</option>
+			<option value='6'>Right</option>
+			<option value='7'>Bottom Left</option>
+			<option value='8' selected>Bottom Center</option>
+			<option value='9'>Bottom Right</option>
+		</select>
+		<button onclick="showBannerAtSelectedPosition();">show</button>
+		<br /> (<input id='x' type='text' size=3 />,<input id='y'
+			type='text' size=3>)
+		<button onclick="showBannerAtGivenXY();">show At XY</button>
+		<br />
+
+		<button onclick="iAd.hideBanner();">hide banner</button>
+		<hr />
+
+		<p>Interstitial</p>
+		<input type='checkbox' id='autoshow' checked />auto show when ready<br />
+		<button onclick="prepareInterstitial();">Prepare</button>
+		<button onclick="iAd.showInterstitial();">Show</button>
+		<div id='sizeinfo'></div>
+	</div>
+</body>
+</html>

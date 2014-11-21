@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+           id="com.rjfun.cordova.iad"
+      version="2.0.1">
+      
+    <name>iAd PluginPro</name>
+	<description>Single line javascript to show iAd banner and interstitial</description>
+	<author>Liming Xie</author>
+	<license>MIT</license>    
+	<keywords>rjfun,ad,iad</keywords>
+    <repo>https://github.com/floatinghotpot/cordova-plugin-iad.git</repo>
+    <issue>https://github.com/floatinghotpot/cordova-plugin-iad/issues</issue>
+
+	<engines>
+	    <engine name="cordova" version=">=3.0" />
+	</engines>
+
+    <js-module src="www/iAd.js" name="iAd">
+        <clobbers target="window.iAd" />
+    </js-module>
+    
+    <dependency id="com.rjfun.cordova.ad"/>
+
+     <!-- ios -->
+     <platform name="ios">    
+         <config-file target="config.xml" parent="/*">
+             <feature name="iAd">
+                 <param name="ios-package" value="iAdPlugin" />
+             </feature>
+         </config-file>
+         
+         <source-file src="libCordovaiAd.a" framework="true" compiler-flags="-force_load"/>
+ 	     <framework src="iAd.framework" weak="true"/>
+	</platform>
+          
+</plugin>
