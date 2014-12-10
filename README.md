@@ -98,17 +98,17 @@ showInterstitial();
 
 The APIs, Events and Options are detailed documented.
 
-Read the detailed API Reference Documentation [English](https://github.com/floatinghotpot/cordova-plugin-iad/wiki).
+Read the detailed API Reference Documentation [English](https://github.com/floatinghotpot/cordova-iad-pro/wiki).
 
 ## FAQ ##
 
-If encounter problem when using the plugin, please read the [FAQ](https://github.com/floatinghotpot/cordova-plugin-iad/wiki/FAQ) first.
+If encounter problem when using the plugin, please read the [FAQ](https://github.com/floatinghotpot/cordova-iad-pro/wiki/FAQ) first.
 
 ## Full Example Code ##
 
 This MobFox Plugin Pro offers the most flexibility and many options.
 
-Check the [test/index.html] (https://github.com/floatinghotpot/cordova-plugin-iad/blob/master/test/index.html).
+Check the [test/index.html] (https://github.com/floatinghotpot/cordova-iad-pro/blob/master/test/index.html).
 
 ## Screenshots ##
 
