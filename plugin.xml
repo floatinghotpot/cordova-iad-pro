@@ -10,8 +10,8 @@
 	<author>Liming Xie</author>
 	<license>MIT</license>    
 	<keywords>rjfun,ad,iad</keywords>
-    <repo>https://github.com/floatinghotpot/cordova-plugin-iad.git</repo>
-    <issue>https://github.com/floatinghotpot/cordova-plugin-iad/issues</issue>
+    <repo>https://github.com/floatinghotpot/cordova-iad-pro.git</repo>
+    <issue>https://github.com/floatinghotpot/cordova-iad-pro/issues</issue>
 
 	<engines>
 	    <engine name="cordova" version=">=3.0" />
