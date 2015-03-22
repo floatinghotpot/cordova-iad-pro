@@ -85,14 +85,9 @@
 
 - (NSObject*) __createInterstitial:(NSString*)adId
 {
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        ADInterstitialAd* ad = [[ADInterstitialAd alloc] init];
-        ad.delegate = self;
-        return ad;
-    } else {
-        [self fireAdErrorEvent:EVENT_AD_FAILLOAD withCode:-1 withMsg:@"iAd interstitial only supports iPad" withType:ADTYPE_INTERSTITIAL];
-        return @"";
-    }
+    ADInterstitialAd* ad = [[ADInterstitialAd alloc] init];
+    ad.delegate = self;
+    return ad;
 }
 
 - (void) __loadInterstitial:(NSObject*)interstitial
