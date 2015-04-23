@@ -1,0 +1,31 @@
+{
+  "name": "cordova-plugin-iad",
+  "version": "2.0.4",
+  "description": "Cordova Plugin for Apple iAd to monetize hybrid apps.",
+  "cordova": {
+    "id": "cordova-plugin-iad",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/floatinghotpot/cordova-iad-pro.git"
+  },
+  "bugs": {
+    "url": "https://github.com/floatinghotpot/cordova-iad-pro/issues"
+  },
+  "keywords": [
+    "cordova",
+    "ecosystem:cordova",
+    "ad",
+    "apple",
+    "iad",
+    "rjfun"
+  ],
+  "author": {
+    "name": "Raymond Xie",
+    "email": "rjfun.mobile@gmail.com"
+  },
+  "license": "MIT"
+}

@@ -2,11 +2,11 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
 	xmlns:android="http://schemas.android.com/apk/res/android"
-           id="com.rjfun.cordova.iad"
+           id="cordova-plugin-iad"
       version="2.0.4">
       
     <name>iAd PluginPro</name>
-	<description>Single line javascript to show iAd banner and interstitial</description>
+	<description>Cordova plugin for Apple iAd banner and interstitial to monetize apps</description>
 	<author>Liming Xie</author>
 	<license>MIT</license>    
 	<keywords>rjfun,ad,iad</keywords>
@@ -21,7 +21,7 @@
         <clobbers target="window.iAd" />
     </js-module>
     
-    <dependency id="com.rjfun.cordova.extension"/>
+    <dependency id="cordova-plugin-extension"/>
 
      <!-- ios -->
      <platform name="ios">    
