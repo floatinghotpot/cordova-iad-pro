@@ -67,8 +67,6 @@ if(iAd) iAd.createBanner( {
 
 Step 2: Prepare an interstitial, and show it when needed
 
-** Notice: iAd interstitial Ad only supports iPad.
-
 ```javascript
 // preppare and load ad resource in background, e.g. at begining of game level
 if(iAd) iAd.prepareInterstitial( { autoShow:false } );
